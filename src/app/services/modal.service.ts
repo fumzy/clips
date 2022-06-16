@@ -36,7 +36,7 @@ this.modals = this.modals.filter(x=>x.id!==id)
     const modal = this.modals.find(element=>element.id === id)
     if(modal)
     {
-      modal.visible = !modal.visible;
+      modal.visible = !modal.visible
     }
     //this.visible = !this.visible;
   }
