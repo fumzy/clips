@@ -19,56 +19,58 @@
 </section>
 
 <!-- User's Video Section -->
-<div class="container mx-auto my-8 bg-gray-300">
+<div class="container mx-auto my-8 bg-gray-900">
   <!-- Video List -->
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
     <div
       *ngFor="let clip of clips"
-      class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl flex flex-col justify-start"
+      class="mt-6 shadow-xl flex flex-col justify-start"
     >
       <!-- Image -->
       <a href="#">
         <img
-          class="card-img-top rounded-tl-2xl w-full"
+          class="card-img-top w-full"
           [src]="clip.screenshotURL"
           crossorigin
         />
       </a>
 
       <!-- Body -->
-      <div class="p-6 text-2xl">
-        <!-- Link -->
-        <a
-          [routerLink]="['/', 'clip', clip.docId]"
-          class="font-bold mb-2 text-gray-800"
-        >
-          {{ clip.title }}
-        </a>
-        <a
-          (click)="copyToClipboard($event, clip.docId)"
-          href="#"
-          class="bg-gray-400 text-white px-2 py-1 ml-2 text-sm rounded"
-        >
-          Copy Link
-        </a>
-      </div>
+      <div>
+        <div class="p-6 text-2xl">
+          <!-- Link -->
+          <a
+            [routerLink]="['/', 'clip', clip.docId]"
+            class="font-bold mb-2 text-gray-300"
+          >
+            {{ clip.title }}
+          </a>
+          <a
+            (click)="copyToClipboard($event, clip.docId)"
+            href="#"
+            class="bg-gray-600 text-white px-2 py-1 ml-2 text-sm rounded"
+          >
+            Copy Link
+          </a>
+        </div>
 
-      <!-- Actions -->
-      <div class="flex text-center text-2xl p-2 mt-auto">
-        <a
-          (click)="openModal($event, clip)"
-          href="#"
-          class="flex-1 p-2 border-right border-r-2 border-gray-700 transition hover:text-indigo-400"
-        >
-          <span class="material-icons text-base">build</span>
-        </a>
-        <a
-          (click)="deleteClip($event, clip)"
-          href="#"
-          class="flex-1 p-2 rounded-br-2xl transition hover:text-indigo-400"
-        >
-          <span class="material-icons text-base text-rose-600">delete</span>
-        </a>
+        <!-- Actions -->
+        <div class="flex text-center text-2xl p-2 mt-auto">
+          <a
+            (click)="openModal($event, clip)"
+            href="#"
+            class="flex-1 p-2 border-right border-r-2 border-gray-300 transition text-gray-300 hover:text-indigo-400"
+          >
+            <span class="material-icons text-base">build</span>
+          </a>
+          <a
+            (click)="deleteClip($event, clip)"
+            href="#"
+            class="flex-1 p-2 rounded-br-2xl transition hover:text-indigo-400"
+          >
+            <span class="material-icons text-base text-rose-600">delete</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
